@@ -1,0 +1,35 @@
+feeder:
+  push_address: mem:///../data/feed.stock.mem?keep=0
+  sub_date: 0
+  sub_time: 0
+  enable_spot: true
+  enable_future: true
+  enable_option: true
+  enable_order: true
+  enable_knock: true
+  enable_holo: false
+  holo_cycle: 10
+  holo_threads: 10
+  cpu_affinity: -1
+  idle_sleep_ns: 100000
+
+tcp_insight:
+  server_host: 221.6.6.131
+  server_port: 9242
+  username: MDCBETA2000106
+  password: .H.4t+_pNa4KucyXk
+
+insight:
+  server_host: 68.81.64.11
+  server_port: 0317
+  # UDP行情备用地址, 可有可无
+  server_host_1: 168.81.64.12
+  server_port_1: 10317
+  username: GLMDIL2PFTZUDP01
+  password : .Rk5x._+f735rxK
+  # 网卡地址
+  interface_ip: 100.68.118.24
+  # api日志, 默认不打开
+  apilog_flag: 0
+  cpu_affinity: 0
+
