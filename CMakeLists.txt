@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(feeder_huatai_hongkang)
+project(feeder_huatai_hongkong)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
@@ -23,7 +23,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/udp_v2.1.0/include/mdc_gatew
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/udp_v2.1.0/include/mdc_gateway_client/protobuf)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/udp_v2.1.0/lib)
 
-add_executable(feeder_huatai_hongkang
+add_executable(feeder_huatai_hongkong
         src/insight_feeder/config.cc
         src/insight_feeder/config.h
         src/insight_feeder/insight_handler.cc
@@ -35,7 +35,7 @@ add_executable(feeder_huatai_hongkang
         src/insight_feeder/main.cc
         )
 
-target_link_libraries(feeder_huatai_hongkang aeron_client_shared aeron_driver ACE ACE_SSL mdc_gateway_client ssl ${FEEDER_LIBRARIES} ${CORAL_LIBRARIES} ${X_LIBRARIES} boost_program_options boost_iostreams boost_coroutine boost_context z protobuf)
+target_link_libraries(feeder_huatai_hongkong aeron_client_shared aeron_driver ACE ACE_SSL mdc_gateway_client ssl ${FEEDER_LIBRARIES} ${CORAL_LIBRARIES} ${X_LIBRARIES} boost_program_options boost_iostreams boost_coroutine boost_context z protobuf)
 
 FILE(GLOB LIBS_NAME "${CMAKE_CURRENT_LIST_DIR}/lib/udp_v2.1.0/lib/*so*")
 FILE(COPY ${LIBS_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
