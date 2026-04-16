@@ -6,6 +6,9 @@ sudo sysctl net.core.wmem_max=10485760
 
 * 订阅行情时必须要交易所的选项SecurityIdSource， tcp版本可以不填
 
+# v2.0.21 (2026-04-16)
+* 将不合理的涨跌停价格设置为0
+
 # v2.0.20 (2025-08-20)
 * 华泰将上海的逆回购归纳为Bond, feeder不认为是Bond，volume_unit设置为0
 

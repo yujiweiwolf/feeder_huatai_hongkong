@@ -7,7 +7,7 @@ using namespace std;
 using namespace co;
 namespace po = boost::program_options;
 
-constexpr const char* kVersion = "v2.0.20";
+constexpr const char* kVersion = "v2.0.21";
 
 int main(int argc, char* argv[]) {
     try {

@@ -162,6 +162,10 @@ void InsightHandler::Parse(const MDStock& p) {
     double close = i2f(p.closepx());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
     MemQTickBody body {};
     {
         strncpy(body.code, std_code.data(), std_code.size());
@@ -258,6 +262,10 @@ void InsightHandler::Parse(const MDFund& p) {
     double close = i2f(p.closepx());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
     FeedContext* ctx = nullptr;
     auto tick = feed_server_->CreateQTickBody(std_code.c_str(), &ctx);
     if (!tick) {
@@ -353,7 +361,10 @@ void InsightHandler::Parse(const MDBond& p) {
     double close = i2f(p.closepx());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
-
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
     FeedContext* ctx = nullptr;
     auto tick = feed_server_->CreateQTickBody(std_code.c_str(), &ctx);
     if (!tick) {
@@ -423,7 +434,10 @@ void InsightHandler::Parse(const MDIndex& p) {
     double close = i2f(p.closepx());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
-
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
     FeedContext* ctx = nullptr;
     auto tick = feed_server_->CreateQTickBody(std_code.c_str(), &ctx);
     if (!tick) {
@@ -503,7 +517,10 @@ void InsightHandler::Parse(const MDFuture& p) {
     double settle = i2f(p.settleprice());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
-
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
     FeedContext* ctx = nullptr;
     auto tick = feed_server_->CreateQTickBody(std_code.c_str(), &ctx);
     if (!tick) {
@@ -593,6 +610,10 @@ void InsightHandler::Parse(const MDOption& p) {
     double settle = i2f(p.settleprice());
     double upper_limit = i2f(p.maxpx());
     double lower_limit = i2f(p.minpx());
+    if ((p.maxpx() == 9999999999999) || (p.minpx() == 10)) {
+        upper_limit = 0;
+        lower_limit = 0;
+    }
 
     FeedContext* ctx = nullptr;
     auto tick = feed_server_->CreateQTickBody(std_code.c_str(), &ctx);
