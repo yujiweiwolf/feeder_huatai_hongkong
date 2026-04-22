@@ -1,4 +1,4 @@
-FROM mycpp:20.04
+FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y libgssapi-krb5-2
 

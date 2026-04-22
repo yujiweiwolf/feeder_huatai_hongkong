@@ -1,4 +1,7 @@
 // Copyright 2025 Fancapital Inc.  All rights reserved.
+#include <filesystem>
+#include <iostream>
+#include <fstream>
 #include "insight_server.h"
 #include "parameter_define.h"
 
@@ -179,7 +182,6 @@ void InsightServer::QueryContracts() {
                     if (type == 0) {
                         continue;
                     }
-
                     // 无 pre_close upper_limit lower_limit
                     FeedContext* ctx = nullptr;
                     auto head = feed_server_->CreateQTickHead(std_code.c_str(), &ctx);
@@ -189,6 +191,7 @@ void InsightServer::QueryContracts() {
                     head->market = market;
                     head->timestamp = x::RawDate() * 1000000000LL;
                     head->dtype = type;
+                    head->min_order_volume = p.lotsize();
                     // 204001.SH 被认为是 ESecurityType::BondType
                     if (market == co::kMarketSH && p.securitytype() == ESecurityType::BondType && std_code[0] == '1') {
                         head->volume_unit = 10;
